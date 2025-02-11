@@ -19,3 +19,5 @@ Route::get('/', function () {
 Route::get('/view', function () {
     return view('welcome');
 });
+require __DIR__.'/api.php';
+
