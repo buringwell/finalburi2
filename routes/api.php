@@ -34,6 +34,14 @@ Route::prefix('auth')->group(function () {
     Route::post('/passnew',[AuthController::class,'update_pass']);
 });
 
+// Route untuk kategori
+Route::prefix('kategori')->group(function () {
+    Route::get('/', [KategoriController::class, 'index']);
+    Route::get('/{id}', [KategoriController::class, 'show']);
+    Route::post('/', [KategoriController::class, 'store']);
+    Route::put('/{id}', [KategoriController::class, 'update']);
+    Route::delete('/{id}', [KategoriController::class, 'destroy']);
+});
 
 // Route yang memerlukan autentikasi
 Route::middleware('auth:api')->group(function () {
@@ -72,14 +80,6 @@ Route::middleware('auth:api')->group(function () {
 
     });
 
-    // Route untuk kategori
-    Route::prefix('kategori')->group(function () {
-        Route::get('/', [KategoriController::class, 'index']);
-        Route::get('/{id}', [KategoriController::class, 'show']);
-        Route::post('/', [KategoriController::class, 'store']);
-        Route::put('/{id}', [KategoriController::class, 'update']);
-        Route::delete('/{id}', [KategoriController::class, 'destroy']);
-    });
 
     // Route untuk alat
     Route::prefix('alat')->group(function () {
